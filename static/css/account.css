@@ -1,0 +1,166 @@
+/* Base styling */
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #ffffff;
+  scroll-behavior: smooth;
+}
+
+/* Center container */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 5vh 2vw;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+/* Card styling */
+.card {
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 480px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  transition: all 0.3s ease;
+}
+
+/* Header */
+.header {
+  background-color:  #4575c3;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  padding: 1rem 1.2rem;
+  font-size: clamp(1rem, 2vw, 1.3rem);
+  font-weight: 700;
+  border-radius: 8px 8px 0 0;
+}
+
+.back-btn {
+  margin-right: 10px;
+  font-size: 1.5rem;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* Form styling */
+.form-container {
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem 1rem;
+}
+
+.form-container label {
+  margin-bottom: 5px;
+  font-weight: 600;
+  font-size: clamp(0.9rem, 1.5vw, 1rem);
+  color: #000;
+}
+
+.form-container input {
+  padding: 0.7rem 0.9rem;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: clamp(0.9rem, 1.5vw, 1rem);
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.form-container input:focus {
+  border-color: #007bff;
+}
+
+.background-image {
+  position: fixed;     
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%; 
+  background-image: url('../imges/rsz_tamil2.png'); 
+  background-size: cover;      
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.03;          
+  z-index: 0; /* keep below container */
+  pointer-events: none; /* ✅ ensure clicks pass through */
+}
+
+/* Update Button */
+.form-container button {
+  padding: 0.8rem;
+  background-color: #1c1c1c;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: clamp(0.9rem, 1.5vw, 1rem);
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.form-container button:hover {
+  background-color: #333333;
+}
+
+/* Tablets (601px–1024px) */
+@media (max-width: 1024px) {
+  .container {
+    padding-top: 80px;
+  }
+
+  .card {
+    max-width: 600px;
+    padding: 1.8rem;
+  }
+}
+
+/* Phones (<= 600px) */
+@media (max-width: 600px) {
+  .container {
+    padding: 60px 4vw;
+  }
+
+  .card {
+    padding: 1.5rem;
+  }
+
+  .header {
+    font-size: clamp(0.9rem, 3vw, 1.1rem);
+  }
+}
+
+/* Small phones (<= 400px) */
+@media (max-width: 400px) {
+  .container {
+    padding-top: 50px;
+  }
+
+  .card {
+    padding: 1.2rem;
+  }
+
+  .header {
+    font-size: clamp(0.85rem, 3vw, 1rem);
+  }
+}
+
+/* Very small devices (<= 300px) */
+@media (max-width: 300px) {
+  .container {
+    padding: 40px 3vw;
+  }
+
+  .card {
+    padding: 1rem;
+  }
+
+  .form-container input,
+  .form-container button {
+    font-size: 0.85rem;
+  }
+}

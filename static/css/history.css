@@ -1,0 +1,201 @@
+body {
+       margin: 0;
+      font-family: Arial, sans-serif;
+      background: #e2e2e2;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      /* font-family: Arial, sans-serif;
+      background-color: #f8f8f8;
+      padding: 20px;
+      margin: 0; */
+    }
+    /* Header */
+    .header {
+      width: 100%;
+      background: #4575c3;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 20px;
+      color: white;
+      position: sticky;
+      top: 0;
+      z-index: 999; /* make sure header is above everything */
+    }
+
+    
+    .menu-icon {
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.card {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  width: 250px;
+  padding: 15px;
+  text-align: center;
+  transition: transform 0.2s;
+}
+
+/* Hover effect */
+.card:hover {
+  transform: translateY(-5px);
+}
+
+/* Card text */
+.card h3 {
+  font-size: 16px;
+  margin-bottom: 10px;
+  word-wrap: break-word;
+}
+
+.meta {
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+
+ .download-btn {
+  display: inline-block;
+  padding: 8px 12px;
+  background-color: #4575c3; 
+  color: #fff;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.download-btn:hover {
+  background-color: #4575c3; 
+}
+
+.no-records {
+  text-align: center;
+  font-size: 16px;
+  color: #555;
+  margin-top: 50px;
+}
+    
+    /* Sidebar */
+   .sidebar {
+      height: 100%;
+      width: 0;
+      position: fixed;
+      top: 0;
+      left: 0;
+      background-color: #5d93de;
+      overflow-x: hidden;
+      transition: 0.3s;
+      box-shadow: 2px 0 5px rgba(0,0,0,0.3);
+      z-index: 1000;
+    }
+
+    .sidebar-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      font-weight: bold;
+      font-size: 20px;
+      color: white;
+      /* border-bottom: 1px solid white; */
+    }
+
+    .close-btn {
+      font-size: 28px;
+      cursor: pointer;
+    }
+
+    .menu-item i {
+    margin-right: 13px; /* adjust this value (e.g., 8px or 12px) to your liking */
+    font-size: 24px;
+    color: rgb(246, 246, 246);
+  }
+
+
+    .menu-item {
+      display: flex;
+      align-items: center;
+      padding: 15px 20px;
+      color: white;
+      font-size: 18px;
+      /* border-bottom: 1px solid rgba(255, 255, 255, 0.3); */
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+
+    .menu-item:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+    .btn {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  color: #4575c3; /* use white text for better contrast */
+  background-color: #ebeae2; /* ash grey */
+  transition: background 0.2s;
+}
+
+/* Hover effect */
+.btn:hover {
+  background-color: #c2c2bb;
+}
+
+/* Remove active/click color */
+.btn:active {
+  background-color: #ebeae2 !important; /* slightly darker grey when pressed */
+  outline: none;
+  box-shadow: none;
+}
+
+/* Remove focus highlight (browser outline) */
+.btn:focus {
+  outline: none;
+  box-shadow: none;
+}
+   .date-header {
+  text-align: center;
+  font-weight: bold;
+  font-size: 18px;
+  margin: 30px 0 10px 0;
+  color: #333;
+}
+
+/* Mobile responsive cards */
+@media screen and (max-width: 600px) {
+  .card {
+    width: 45%; /* 2 cards per row */
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .card {
+    width: 80%; /* 1 card per row */
+  }
+}
+
+@media screen and (max-width: 300px) {
+  .card {
+    width: 95%; /* almost full width */
+  }
+}
+    

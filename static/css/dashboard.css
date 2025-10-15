@@ -1,0 +1,191 @@
+body {
+       margin: 0;
+      font-family: Arial, sans-serif;
+      background: #e2e2e2;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      /* font-family: Arial, sans-serif;
+      background-color: #f8f8f8;
+      padding: 20px;
+      margin: 0; */
+    }
+    /* Header */
+    .header {
+      width: 100%;
+      background: #4575c3;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 20px;
+      color: white;
+      position: sticky;
+      top: 0;
+      z-index: 999; /* make sure header is above everything */
+    }
+
+    
+    .menu-icon {
+      font-size: 24px;
+      cursor: pointer;
+    }
+    .container { max-width:1000px; margin: 0 auto; }
+    .cards {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+/* Card default width for desktop */
+.card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 18px;
+  flex: 1 1 200px; /* default width */
+  box-shadow: 0 6px 18px rgba(30,30,60,0.06);
+}
+    .card h3 { margin:0 0 8px; font-size:14px; color:#666; font-weight:600 }
+    .card .big { font-size:28px; font-weight:700; margin-top:6px; color:#0b3b66; }
+    .card.small { padding:12px; text-align:center; }
+    table { width:100%; border-collapse:collapse; background:#fff; border-radius:8px; overflow:hidden; box-shadow: 0 6px 18px rgba(30,30,60,0.06); }
+    th, td { padding:10px 12px; text-align:left; border-bottom:1px solid #eee; }
+    th { background:#fafafa; font-weight:700; }
+    .recent-title { margin:18px 0 10px; font-size:18px; color:#333; }
+     /* Sidebar */
+    .sidebar {
+      height: 100%;
+      width: 0;
+      position: fixed;
+      top: 0;
+      left: 0;
+      background-color: #5d93de;
+      overflow-x: hidden;
+      transition: 0.3s;
+      box-shadow: 2px 0 5px rgba(0,0,0,0.3);
+      z-index: 1000;
+    }
+
+    .sidebar-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      font-weight: bold;
+      font-size: 20px;
+      color: white;
+      /* border-bottom: 1px solid white; */
+    }
+
+    .close-btn {
+      font-size: 28px;
+      cursor: pointer;
+    }
+
+    .menu-item i {
+    margin-right: 13px; /* adjust this value (e.g., 8px or 12px) to your liking */
+    font-size: 24px;
+    color: rgb(246, 246, 246);
+  }
+
+
+    .menu-item {
+      display: flex;
+      align-items: center;
+      padding: 15px 20px;
+      color: white;
+      font-size: 18px;
+      /* border-bottom: 1px solid rgba(255, 255, 255, 0.3); */
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+
+    .menu-item:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+    .btn {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  color: #4575c3; /* use white text for better contrast */
+  background-color: #ebeae2; /* ash grey */
+  transition: background 0.2s;
+}
+
+/* Hover effect */
+.btn:hover {
+  background-color: #c2c2bb;
+}
+
+/* Remove active/click color */
+.btn:active {
+  background-color: #ebeae2 !important; /* slightly darker grey when pressed */
+  outline: none;
+  box-shadow: none;
+}
+
+/* Remove focus highlight (browser outline) */
+.btn:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+    /* Mobile table */
+@media screen and (max-width: 600px) {
+  table, thead, tbody, th, td, tr { display: block; }
+  thead tr { display: none; }
+  tr { margin-bottom: 12px; border-bottom: 1px solid #eee; }
+  td { padding: 8px; text-align: right; position: relative; }
+  td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 8px;
+    width: 50%;
+    text-align: left;
+    font-weight: bold;
+    
+  }
+  .card {
+    flex: 1 1 calc(50% - 16px); /* 2 cards per row, with gap */
+  }
+}
+
+@media screen and (max-width: 400px) {
+  td { padding: 6px; font-size: 13px; }
+  td::before { width: 55%; font-size: 12px; }
+  .card {
+    flex: 1 1 100%; /* 1 card per row on very small screens */
+  }
+}
+
+@media screen and (max-width: 300px) {
+  td { padding: 4px; font-size: 12px; }
+  td::before { width: 60%; font-size: 11px; }
+}
+/* Download button style */
+.download-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;                /* space between text and icon */
+  padding: 6px 16px;
+  background-color: #4575c3;   
+  color: #fff;
+  border-radius: 25px;
+  font-size: 14px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+/* Hover effect */
+.download-btn:hover {
+  background-color: #4575c3;   /* darker red */
+  transform: scale(1.05);
+}
+
+/* Icon inside button */
+.download-btn i {
+  font-size: 14px;
+}

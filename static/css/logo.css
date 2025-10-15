@@ -1,0 +1,43 @@
+/* Reset default browser styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Full page white background */
+body {
+  height: 100vh;
+  width: 100vw;
+  background: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Splash container */
+.splash {
+  text-align: center;
+  animation: fadeIn 2s ease-in;
+}
+
+/* Logo styling */
+.logo {
+  width: 150px;      /* Adjust size as needed */
+  height: auto;
+  margin-bottom: 20px;
+}
+
+/* App title */
+h1 {
+  color: #000;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+/* Simple fade in animation */
+@keyframes fadeIn { 
+  0% { opacity: 0; transform: scale(0.9); }
+  100% { opacity: 1; transform: scale(1); }
+}

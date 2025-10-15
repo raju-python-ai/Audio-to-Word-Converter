@@ -1,0 +1,112 @@
+/* body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+
+.logo {
+  margin-bottom: 20px;
+}
+.logo img {
+  width: 100px;
+  height: auto;
+}
+.logo-text {
+  font-size: 14px;
+  margin-top: 5px;
+  font-weight: bold;
+}
+
+h2 {
+  font-size: 22px;
+  font-weight: bold;
+  margin: 10px 0;
+}
+p {
+  font-size: 14px;
+  
+  color: #87CEEB;
+  margin-bottom: 40px;
+}
+
+
+.btn {
+  display: block;
+  width: 200px;
+  padding: 15px;
+  margin: 10px auto;
+  border: none;
+  border-radius: 25px;
+  background: #a89c9c;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: #8b7f7f;
+} */
+
+
+body { 
+  font-family: 'Noto Sans Tamil', Arial, sans-serif; 
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  height: 100vh; 
+  background: #f5f5f5; 
+  position: relative;
+  overflow: hidden;
+}
+
+.container { 
+  background-color: #ffffff;
+  padding: 30px 40px; 
+  border-radius: 12px; 
+  box-shadow: 0 6px 18px rgba(0,0,0,0.1); 
+  text-align: center; 
+  position: relative;
+  z-index: 1; /* above background */
+}
+
+.background-image {
+  position: fixed;     
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%; 
+  background-image: url('../imges/rsz_tamil2.png'); 
+  background-size: cover;      
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.03;          
+  z-index: 0; /* keep below container */
+  pointer-events: none; /* ✅ ensure clicks pass through */
+}
+
+h2 { 
+  margin-bottom: 20px; 
+  font-size: 24px; 
+}
+
+button { 
+  margin: 10px; 
+  padding: 12px 24px; 
+  font-size: 16px; 
+  border: none; 
+  border-radius: 8px; 
+  cursor: pointer; 
+}
+
+.tamil { background: #f44336; color: #fff; }
+.english { background: #2196f3; color: #fff; }

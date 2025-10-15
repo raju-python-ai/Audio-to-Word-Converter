@@ -1,0 +1,144 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+  background:#fff;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  min-height:100vh;
+}
+
+.container{
+  width:100%;
+  max-width:380px;
+  background:#fff;
+  border-radius:20px;
+  box-shadow:0 4px 10px rgba(0,0,0,0.1);
+  overflow:hidden;
+}
+
+.header{
+  background:linear-gradient(to bottom,#5d93de,#5d93de);
+  text-align:center;
+  padding:50px 20px 40px;
+  border-bottom-left-radius:40px;
+  border-bottom-right-radius:40px;
+}
+
+.header h1{
+  color:#000;
+  font-size:28px;
+  margin-bottom:5px;
+  font-weight:bold;
+}
+
+.header p{
+  color:#fff;
+  font-size:16px;
+}
+
+form{
+  padding:25px;
+}
+
+.input-box{
+  position:relative;
+  margin-bottom:20px;
+}
+
+.input-box input{
+  width:100%;
+  padding:14px 45px 14px 15px;
+  border:1px solid #ccc;
+  border-radius:10px;
+  font-size:15px;
+}
+
+.input-box i{
+  position:absolute;
+  right:15px;
+  top:50%;
+  transform:translateY(-50%);
+  color:#777;
+}
+
+.options{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  font-size:14px;
+  margin-bottom:25px;
+}
+
+.options label{
+  cursor:pointer;
+}
+
+.forgot{
+  color:#87CEEB;
+  text-decoration:none;
+}
+
+.login-btn{
+  width:100%;
+  background:  #4575c3;
+  color:#fff;
+  border:none;
+  padding:15px;
+  border-radius:30px;
+  font-size:18px;
+  font-weight:600;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.login-btn:hover{
+  background:   #4575c3;
+}
+
+.signup-text{
+  text-align:center;
+  margin:20px 0 10px;
+  font-size:14px;
+}
+
+.signup-text a{
+  color:  #E30613;
+  text-decoration:none;
+  font-weight:600;
+}
+
+.continue{
+  text-align:center;
+  margin-bottom:10px;
+  color:#555;
+  font-size:14px;
+}
+
+.social-login{
+  display:flex;
+  justify-content:center;
+  gap:20px;
+}
+
+.social-login button{
+  border:1px solid #ccc;
+  border-radius:50%;
+  width:45px;
+  height:45px;
+  background:#fff;
+  cursor:pointer;
+  font-size:20px;
+  color:#555;
+  transition:0.3s;
+}
+
+.social-login button:hover{
+  border-color:  #4575c3;
+  color:   #4575c3;
+}

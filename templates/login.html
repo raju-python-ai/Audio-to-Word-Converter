@@ -1,0 +1,58 @@
+
+
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>உள்நுழைவு</title>
+<link rel="stylesheet" href="../static/css/login.css">
+
+<!-- Font Awesome for icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+<div class="container">
+
+  <!-- Header -->
+  <div class="header">
+    <h1>வரவேற்பு</h1>
+    <p>உங்கள் கணக்கில் உள்நுழைக</p>
+  </div>
+
+  <!-- Form -->
+  <form method="POST" action="{{ url_for('auth.login') }}">
+    <div class="input-box">
+      <input type="email" name="email" placeholder="உங்கள் மின்னஞ்சலை உள்ளிடவும்" required>
+      <i class="fa fa-envelope"></i>
+    </div>
+
+    <div class="input-box">
+      <input type="password" name="password" placeholder="கடவுச்சொல்" required>
+      <i class="fa fa-lock"></i>
+    </div>
+
+    <div class="options">
+      <label><input type="checkbox"> நினைவில் வைக்கவும்</label>
+      <a href="#" class="forgot">கடவுச்சொல் மறந்துவிட்டீர்களா ?</a>
+    </div>
+
+    <button type="submit" class="login-btn">உள்நுழைக</button>
+
+    <p class="signup-text">கணக்கு இல்லையா? 
+      <a href="{{ url_for('auth.register') }}">இப்போது உருவாக்கவும்</a>
+    </p>
+
+    <p class="continue">அல்லது இதோடு தொடரவும்</p>
+    <div class="social-login">
+      <button type="button" class="google"><i class="fa-brands fa-google"></i></button>
+      <button type="button" class="facebook"><i class="fa-brands fa-facebook-f"></i></button>
+    </div>
+  </form>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

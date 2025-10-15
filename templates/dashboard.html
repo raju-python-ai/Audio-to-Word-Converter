@@ -1,0 +1,149 @@
+<!-- templates/dashboard.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dashboard</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+   <!-- Bootstrap Bundle JS (includes Popper) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="../static/css/dashboard.css">
+</head>
+<body>
+  <div class="header">
+    <button class="btn btn-danger" type="button" id="menuButton">
+      <i class="fas fa-bars"></i> <!-- FontAwesome hamburger icon -->
+    </button>
+    <div class="logo">{{ t["appName"] }}</div>
+  </div>
+ <div id="sidebar" class="sidebar">
+    <!-- Main Sidebar -->
+    <div id="sidebarMain">
+      <div class="sidebar-header">
+        <span></span>
+        <span class="close-btn" onclick="closeMenu()"><i class="fa-solid fa-circle-xmark"></i></span>
+      </div>
+      <a href="/dashboard" class="menu-item"><i class="fa-solid fa-square-poll-vertical"></i> <span>{{ t["dashboard"] }}</span></a>
+      <a href="/history" class="menu-item"><i class="fa-solid fa-layer-group"></i>  <span>{{ t["history"] }}</span></a>
+      <a href="{{ url_for('main.home') }}" class="menu-item"><i class="fa-solid fa-house"></i><span>{{ t["home"] }}</span></a>
+      <a href="#" class="menu-item" onclick="showSidebarSettings()"><i class="fa-solid fa-gear"></i> <span>{{ t["settings"] }}</span></a>
+      <a href="{{ url_for('auth.logout') }}" class="menu-item"><i class="fa-solid fa-right-from-bracket"></i> <span>{{ t["logout"] }}</span></a>
+    </div>
+
+    <!-- Settings Sidebar -->
+    <div id="sidebarSettings" style="display:none;">
+      <div class="sidebar-header">
+        <button class="back-btn" onclick="showSidebarMain()"> <i class="fa-solid fa-left-long"></i></button>
+      </div>
+      <a href="{{ url_for('settings.settings_page', page='account') }}" class="menu-item"><i class="fa-solid fa-circle-user"></i> <span>{{ t["account"] }}</span></a>
+      <a href="/settings/lang_select" class="menu-item"><i class="fa-solid fa-language"></i> <span>{{ t["language"] }}</span></a>
+      <a href="/settings/version" class="menu-item"><i class="fa-solid fa-screwdriver-wrench"></i> <span>{{ t["version"] }}</span></a>
+    </div>
+  </div>
+
+  <div class="container">
+    <h1>{{ t["dashboard_title"] }}</h1>
+
+    <div class="cards">
+      <div class="card">
+        <h3>{{ t["Audio files uploaded"] }}</h3>
+        <div class="big">{{ counts.total_audio or 0 }}</div>
+      </div>
+
+      <div class="card">
+        <h3>{{ t["Converted (docx/pdf)"] }}</h3>
+        <div class="big">{{ counts.total_converted or 0 }}</div>
+      </div>
+
+      <div class="card">
+        <h3>{{ t["Word (.docx)"] }}</h3>
+        <div class="big">{{ counts.docx_count or 0 }}</div>
+      </div>
+
+      <div class="card">
+        <h3>{{ t["PDF (.pdf)"] }}</h3>
+        <div class="big">{{ counts.pdf_count or 0 }}</div>
+      </div>
+
+      <div class="card">
+        <h3>{{ t["Total Files (all types)"] }}</h3>
+        <div class="big">{{ counts.total_files or 0 }}</div>
+      </div>
+    </div>
+
+    <div class="recent-title">{{ t["Recent uploads / conversions"] }}</div>
+    <table>
+      <thead>
+        <tr>
+          <th></th>
+          <th>{{ t["Filename"] }}</th>
+          <th>{{ t["Type"] }}</th>
+          <th>{{ t["Date"] }}</th>
+          <th>{{ t["Download"] }}</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% if recent %}
+          {% for row in recent %}
+            <tr>
+              <!--<td data-label="{{ t['No.'] }}">{{ loop.index }}</td>-->
+              <td></td>
+              <td data-label="{{ t['Filename'] }}">{{ row[1] }}</td>
+              <td data-label="{{ t['Type'] }}">
+                {% if row[2] == 'audio' %}
+                    <i class="fa-solid fa-music" style="color: #5d93de;" title="Audio"></i>
+                {% elif row[2] == 'pdf' %}
+                    <i class="fa-solid fa-file-pdf" style="color: #5d93de;" title="PDF"></i>
+                {% elif row[2] == 'docx' %}
+                    <i class="fa-solid fa-file-word" style="color: #5d93de;" title="Word Document"></i>
+                {% else %}
+                    {{ row[2] }}
+                {% endif %}
+              </td>
+              <td data-label="{{ t['Date'] }}">{{ row[3] }}</td>
+              <td data-label="{{ t['Download'] }}" class="table-download">
+              <a href="{{ url_for('upload.uploaded_file', filename=row[1]) }}" target="_blank" class="download-btn">{{ t['Download'] }}<i class="fa-solid fa-download"></i></a></td>
+            </tr>
+          {% endfor %}
+        {% else %}
+        <tr>
+          <td colspan="5" style="text-align:center;padding:20px;">{{ t["No history yet"] }}</td>
+        </tr>
+     {% endif %}
+      </tbody>
+   </table>
+</div>
+
+
+  <script>
+
+const menuButton = document.getElementById('menuButton');
+  menuButton.addEventListener('click', () => {
+    openMenu(); // call your existing openMenu function
+  });
+   function openMenu() {
+  document.getElementById("sidebar").style.width = "250px";
+}
+
+function closeMenu() {
+  document.getElementById("sidebar").style.width = "0";
+}
+
+// Show Settings sidebar
+function showSidebarSettings() {
+  document.getElementById("sidebarMain").style.display = "none";
+  document.getElementById("sidebarSettings").style.display = "block";
+}
+
+// Show Main sidebar
+function showSidebarMain() {
+  document.getElementById("sidebarSettings").style.display = "none";
+  document.getElementById("sidebarMain").style.display = "block";
+}
+</script>
+</body>
+</html>
